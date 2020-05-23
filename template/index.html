@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Onnx Support</title>
+<style>
+    /* Add some padding on document's body to prevent the content
+    to go underneath the header and footer */
+    body{        
+        padding-top: 60px;
+        padding-bottom: 40px;
+    }
+    .fixed-header, .fixed-footer{
+        width: 100%;
+        position: fixed;        
+        background: #333;
+        padding: 10px 0;
+        color: #fff;
+    }
+    .fixed-header{
+        top: 0;
+    }
+    .fixed-footer{
+        bottom: 0;
+    }
+    .container{
+        width: 80%;
+        margin: 0 auto; /* Center the DIV horizontally */
+    }
+    nav a{
+        color: #fff;
+        text-decoration: none;
+        padding: 7px 25px;
+        display: inline-block;
+    }
+</style>
+</head>
+<body>
+    <div class="fixed-header">
+        <div class="container">
+            <nav>
+                <a href="/">Onnx Support</a>
+                <a href="scoreImagePage">Score</a>
+            
+            </nav>
+        </div>
+    </div>
+    <div class="container">
+        <form action="uploadModel" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="col-md-4 col-sm-4">
+                <label for="modelName">Upload Model File Here:</label>
+            </div> <input name="filePath" type="file"><br><br>
+            <br>
+           
+            
+            <input type="submit" value="Submit" >
+        </form>
+    </div>    
+    <div>
+
+        <h3>{{message}}</h3> <br>
+
+        <h2>{{listOfModels}}</h2>
+    </div>
+    <div class="fixed-footer">
+        <div class="container">Some OWrk</div>        
+    </div>
+</body>
+</html>
